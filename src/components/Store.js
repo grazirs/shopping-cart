@@ -13,7 +13,7 @@ const Store = () => {
       <button onClick={() => {setRenderPage('products')}}>Products</button>
       <button onClick={() => {setRenderPage('cart')}}>Cart</button>
       <main>
-      {renderPage === 'products' ? <ProductsList /> : <Cart />}
+      {renderPage === 'products' ? <ProductsList products={products} addToCart={setCart}/> : <Cart />}
       </main>
     </>
   )
