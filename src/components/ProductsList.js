@@ -5,7 +5,7 @@ const ProductsList = ({products, addToCart}) => {
     <>
       {products.map(product =>
         <div key={product.name}>
-          <Product product={product} addToCart={addToCart}></Product>
+          <Product product={product} addToCart={() => addToCart(product)}></Product>
         </div>
         )}
     </>
