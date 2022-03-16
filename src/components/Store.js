@@ -8,12 +8,15 @@ const Store = () => {
   const [cart, setCart] = useState([]);
   const [renderPage, setRenderPage] = useState('products');
 
+  const addToCart = () => {
+  }
+
   return (
     <>
       <button onClick={() => {setRenderPage('products')}}>Products</button>
       <button onClick={() => {setRenderPage('cart')}}>Cart</button>
       <main>
-      {renderPage === 'products' ? <ProductsList products={products} addToCart={setCart}/> : <Cart />}
+      {renderPage === 'products' ? <ProductsList products={products} addToCart={addToCart}/> : <Cart />}
       </main>
     </>
   )
