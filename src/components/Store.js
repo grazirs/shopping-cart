@@ -14,12 +14,15 @@ const Store = () => {
     }
   }
 
+  const removeFromCart = () => {
+  }
+
   return (
     <>
       <button onClick={() => {setRenderPage('products')}}>Products</button>
       <button onClick={() => {setRenderPage('cart')}}>Cart</button>
       <main>
-      {renderPage === 'products' ? <ProductsList products={products} addToCart={addToCart}/> : <Cart cart={cart}/>}
+      {renderPage === 'products' ? <ProductsList products={products} addToCart={addToCart}/> : <Cart cart={cart} removeFromCart={removeFromCart}/>}
       </main>
     </>
   )

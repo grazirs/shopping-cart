@@ -1,6 +1,15 @@
-const Cart = () => {
+import CartItem from "./CartItem";
+
+const Cart = ({cart, removeFromCart}) => {
   return (
-    <h1>Cart</h1>
+    <>
+      <h1>Cart</h1>
+      {cart.map(cart => 
+        <div key={cart.name}>
+          <CartItem item={cart} removeFromCart={() => removeFromCart(cart)}></CartItem>   
+        </div>
+      )}
+    </>
   )
 }
 
