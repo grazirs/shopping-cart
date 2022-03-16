@@ -14,7 +14,9 @@ const Store = () => {
     }
   }
 
-  const removeFromCart = () => {
+  const removeFromCart = (product) => {
+    cart.splice(cart.indexOf(product),1);
+    setCart([...cart]);
   }
 
   return (

@@ -4,9 +4,9 @@ const Cart = ({cart, removeFromCart}) => {
   return (
     <>
       <h1>Cart</h1>
-      {cart.map(cart => 
-        <div key={cart.name}>
-          <CartItem item={cart} removeFromCart={() => removeFromCart(cart)}></CartItem>   
+      {cart.map(item => 
+        <div key={item.name}>
+          <CartItem item={item} removeFromCart={() => removeFromCart(item)}></CartItem>   
         </div>
       )}
     </>
