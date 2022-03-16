@@ -13,6 +13,7 @@ const Store = () => {
       setCart([...cart, product ]);
     }
   }
+
   return (
     <>
       <button onClick={() => {setRenderPage('products')}}>Products</button>
