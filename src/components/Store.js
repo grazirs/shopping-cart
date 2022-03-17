@@ -15,8 +15,7 @@ const Store = () => {
   }
 
   const removeFromCart = (product) => {
-    cart.splice(cart.indexOf(product),1);
-    setCart([...cart]);
+    setCart(cart.filter(element => element !== product));
   }
 
   return (
