@@ -7,7 +7,7 @@ describe("<CartItem/>", () => {
     const removeFromCartMock = jest.fn();
     const item = { name: "item1", description: "something here" };
     render(
-      <CartItem item={item} removeFromCart={removeFromCartMock}></CartItem>
+      <CartItem item={item} removeFromCart={removeFromCartMock} />
     );
     return { removeFromCartMock, item };
   };
