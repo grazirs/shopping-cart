@@ -13,9 +13,9 @@ const Store = () => {
       setCart([...cart, product ]);
     }
   }
-console.log(cart)
+
   const removeFromCart = (product) => {
-    setCart(cart.filter(element => element !== product))
+    setCart(cart.filter(element => element !== product));
   }
 
   return (
