@@ -3,12 +3,14 @@ import CartItem from "./CartItem";
 const Cart = ({cart, removeFromCart}) => {
   return (
     <>
-      <h1>Cart</h1>
-      {cart.map(item => 
-        <div key={item.name}>
-          <CartItem item={item} removeFromCart={() => removeFromCart(item)}></CartItem>   
-        </div>
-      )}
+      <h1 className="title">My Cart</h1>
+      <div className="cart">
+        {cart.map(item => 
+          <div key={item.name}>
+            <CartItem item={item} removeFromCart={() => removeFromCart(item)}></CartItem>   
+          </div>
+        )}
+      </div>
     </>
   )
 }
