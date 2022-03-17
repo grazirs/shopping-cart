@@ -3,10 +3,10 @@ import userEvent from "@testing-library/user-event";
 import Store from "./Store";
 
 describe("<Store />", () => {
-  beforeEach(()=>{
+  beforeEach(() => {
     render(<Store />);
-  })
-  const product = { id: 1, name: "Stormtrooper T-shirt", description: "White t-shirt, black threads" };
+  });
+  const product = { id: 1, name: "Stormtrooper T-shirt", description: "White t-shirt, black threads"};
   describe("when Store is rendered", () => {
     it("renders the data of one product", () => {
       const productName = screen.getByText(product.name);
@@ -30,7 +30,7 @@ describe("<Store />", () => {
 
   describe("when a product is being added to cart", () => {
     it("shows a product to cart", () => {
-      const addToCartButton = screen.getByTestId("1")
+      const addToCartButton = screen.getByTestId("1");
       userEvent.click(addToCartButton);
       const cartButton = screen.getByRole("button", { name: "Cart" });
       userEvent.click(cartButton);
@@ -40,7 +40,7 @@ describe("<Store />", () => {
 
   describe("when a product is being removed from cart", () => {
     it("removes product from cart", () => {
-      const addToCartButton = screen.getByTestId("1")
+      const addToCartButton = screen.getByTestId("1");
       userEvent.click(addToCartButton);
       const cartButton = screen.getByRole("button", { name: "Cart" });
       userEvent.click(cartButton);
