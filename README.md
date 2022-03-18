@@ -11,7 +11,7 @@ Open a terminal and execute this command to run: ```npm start```.
 
 ## Tests
 
-To run the tests you need to run this command: ```npm test```. 
+Open a terminal and execute this command: ```npm test```. 
 
 
 Final result: 
