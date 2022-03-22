@@ -1,6 +1,6 @@
 import CartItem from "./CartItem";
 
-const Cart = ({cart, removeFromCart}) => {
+const Cart = ({cart, removeFromCart, checkout}) => {
   return (
     <>
       <h1 className="title">My Cart</h1>
@@ -11,6 +11,7 @@ const Cart = ({cart, removeFromCart}) => {
           </div>
         )}
       </div>
+      <button onClick={checkout} className="button button--checkout">Checkout</button>
     </>
   )
 }

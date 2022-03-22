@@ -1,6 +1,7 @@
 import { useState } from "react"
 import Cart from "./Cart"
 import ProductsList from "./ProductsList"
+import Checkout from "./Checkout"
 import AVAILABLE_PRODUCTS  from "../availableProducts"
 
 const Store = () => {
@@ -18,6 +19,10 @@ const Store = () => {
     setCart(cart.filter(element => element !== product));
   }
 
+  const checkout  = () => {
+    setRenderPage('checkout');
+  }
+
   return (
     <>
       <header className="header">
@@ -27,7 +32,9 @@ const Store = () => {
         </nav>
       </header>
       <main className="main">
-        {renderPage === 'products' ? <ProductsList products={products} addToCart={addToCart}/> : <Cart cart={cart} removeFromCart={removeFromCart}/>}
+        {renderPage === 'products' && <ProductsList products={products} addToCart={addToCart}/> }
+        {renderPage === 'cart' && <Cart cart={cart} removeFromCart={removeFromCart} checkout={checkout}/>}
+        {renderPage === 'checkout' && <Checkout />}
       </main>
     </>
   )
