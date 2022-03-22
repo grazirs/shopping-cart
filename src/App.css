@@ -88,6 +88,7 @@
 
 .button {
   height: 40px;
+  width: 170px;
   border-radius: 20px;
   padding: var(--padding-10);
   border: none;
@@ -96,7 +97,7 @@
   cursor: pointer;
 }
 
-.button--add {
+.button--add, .button--checkout{
   background-color: var(--dark-blue);
   margin-bottom: var(--margin-28);
 }
@@ -111,6 +112,10 @@
 .button--remove:hover {
   background-color: var(--dark-red);
   color: var(--white);
+}
+
+.button--checkout:hover {
+  background-color: var(--purple);
 }
 
 .main {
