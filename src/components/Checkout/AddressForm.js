@@ -58,6 +58,17 @@ export default function AddressForm() {
         <Grid item xs={12} sm={6}>
           <TextField
             required
+            id="zip"
+            name="zip"
+            label="Zip / Postal code"
+            fullWidth
+            autoComplete="shipping postal-code"
+            variant="standard"
+          />
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            required
             id="city"
             name="city"
             label="City"
@@ -72,17 +83,6 @@ export default function AddressForm() {
             name="state"
             label="State/Province/Region"
             fullWidth
-            variant="standard"
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="zip"
-            name="zip"
-            label="Zip / Postal code"
-            fullWidth
-            autoComplete="shipping postal-code"
             variant="standard"
           />
         </Grid>
