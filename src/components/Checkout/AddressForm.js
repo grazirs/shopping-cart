@@ -4,8 +4,27 @@ import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
+import InputLabel from '@mui/material/InputLabel';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+import countriesData from './countries_states.json';
 
 export default function AddressForm() {
+  const [country, setCountry] = React.useState('');
+  const [regions, setRegions] = React.useState([]);
+  const [region, setRegion] = React.useState('');
+
+  const handleChangeCountry = (event) => {
+    setCountry(event.target.value);
+    const filteredCountry = countriesData.countries.filter((countryData) => countryData.country === event.target.value);
+    setRegions(filteredCountry[0].states);
+  };
+
+  const handleChangeRegion = (event) => {
+    setRegion(event.target.value);
+  };
+
+
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
@@ -78,24 +97,41 @@ export default function AddressForm() {
           />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <TextField
-            id="state"
-            name="state"
-            label="State/Province/Region"
-            fullWidth
-            variant="standard"
-          />
+          <InputLabel id="countries">Country</InputLabel>
+          <Select
+              labelId="countries"
+              id="countries-open-select"
+              label="Country"
+              onChange={handleChangeCountry}
+              fullWidth
+              variant="standard"
+              value={country}
+              data-testid="select"
+            >
+            {countriesData.countries.map((countryData) => (
+              <MenuItem  key={countryData.country} value={countryData.country}>
+                {countryData.country}
+              </MenuItem>
+            ))}
+          </Select>
         </Grid>
         <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="country"
-            name="country"
-            label="Country"
-            fullWidth
-            autoComplete="shipping country"
-            variant="standard"
-          />
+          <InputLabel id="regions">State/Province/Region</InputLabel>
+          <Select
+              labelId="regions"
+              id="regions-open-select"
+              label="State/Province/Region"
+              onChange={handleChangeRegion}
+              fullWidth
+              variant="standard"
+              value={region}
+            >
+            {regions.map((region) => (
+              <MenuItem key={region} value={region}>
+                {region}
+              </MenuItem>
+            ))}
+          </Select>  
         </Grid>
         <Grid item xs={12}>
           <FormControlLabel
