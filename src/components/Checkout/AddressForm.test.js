@@ -17,6 +17,16 @@ describe("<AddressForm/>", () => {
     });
   });
 
+  describe("when renders the country field", () => {
+    it('displays the correct number of options', () => {
+      render(<AddressForm />)
+      const country = screen.getByRole('button', {  name: /country ​/i});
+      userEvent.click(country);
+      const numberOfOptions = screen.getAllByRole('option');
+      expect(numberOfOptions.length).toBe(191)
+    })
+  });
+
   describe("when user chooses a country", () => {
     it("renders the chosen country", () => {
       render(<AddressForm />);
