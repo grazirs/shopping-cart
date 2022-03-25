@@ -10,6 +10,7 @@ const AVAILABLE_PRODUCTS = [
     name: "Totoro Hoop",
     description: "Diameter: 14 cm",
     image: totoroHoop,
+    price: 100,
   },
 
   {
@@ -17,6 +18,7 @@ const AVAILABLE_PRODUCTS = [
     name: "Portrait Hoop",
     description: "Diameter: 16cm",
     image: portraitHoop,
+    price: 200,
   },
 
   {
@@ -24,6 +26,7 @@ const AVAILABLE_PRODUCTS = [
     name: "Stormtrooper T-shirt",
     description: "White t-shirt, black threads",
     image: stormtrooperTShirt,
+    price: 150,
   },
 
   {
@@ -31,6 +34,7 @@ const AVAILABLE_PRODUCTS = [
     name: "Sia: Unstoppable Hoop",
     description: "Diameter: 14cm",
     image: siaHoop,
+    price: 50,
   },
 ];
 

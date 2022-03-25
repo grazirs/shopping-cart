@@ -18,37 +18,91 @@ import Review from './Review';
 
 const steps = ['Shipping address', 'Payment details', 'Review your order'];
 
-function getStepContent(step) {
-  switch (step) {
-    case 0:
-      return <AddressForm />;
-    case 1:
-      return <PaymentForm />;
-    case 2:
-      return <Review />;
-    default:
-      throw new Error('Unknown step');
-  }
-}
-
 const theme = createTheme();
 
-export default function Checkout() {
+export default function Checkout({cart}) {
   const [activeStep, setActiveStep] = React.useState(0);
+  const [addressIsValid, setAddressIsValid] = React.useState(false)
+  const [paymentIsValid, setPaymentIsValid] = React.useState(false)
+  const [addressForm, setAddressForm] = React.useState({ 
+    firstName: "",
+    lastName: "",
+    address1: "",
+    address2: "",
+    zip: "",
+    city: "",
+    country: "",
+    region: ""
+  });
+
+  const [paymentForm, setPaymentForm] = React.useState({ 
+    cardName: "",
+    cardNumber: "",
+    expiryDate: "",
+    cvv: "",
+  });
+
+  const isFormValid = () => {
+    return addressIsValid && activeStep === 0 || paymentIsValid && activeStep === 1;
+  }
+
+  const checkAddressValidation = (newAddress) => {
+    const isValid = Object.values(newAddress).every((value) => value.length > 0);
+    setAddressIsValid(isValid);
+  }
+
+  const handleAddressForm = (event) => {
+    const newAddress = { ...addressForm, [event.target.name]: event.target.value };
+    setAddressForm(newAddress);
+    checkAddressValidation(newAddress, setAddressIsValid);
+  }
+
+  const checkPaymentValidation = (newPayment) => {
+    const isPaymentValid = Object.values(newPayment).every((value) => value.length > 0);
+    setPaymentIsValid(isPaymentValid);
+  }
+
+  const handlePaymentForm = (event) => {
+    const newPayment = { ...paymentForm, [event.target.name]: event.target.value };
+    setPaymentForm(newPayment);
+    checkPaymentValidation(newPayment, setPaymentIsValid);
+  }
 
   const handleNext = () => {
-    setActiveStep(activeStep + 1);
+    if (isFormValid) setActiveStep(activeStep + 1);
   };
 
   const handleBack = () => {
     setActiveStep(activeStep - 1);
   };
 
+  function getStepContent() {
+    switch (activeStep) {
+      case 0:
+        return <AddressForm 
+          addressForm = {addressForm}
+          handleAddressForm = {handleAddressForm}
+        />;
+      case 1:
+        return <PaymentForm 
+          paymentForm = {paymentForm}
+          handlePaymentForm = {handlePaymentForm}
+        />;
+      case 2:
+        return <Review 
+          cart = {cart}
+          addressForm = {addressForm}
+          paymentForm = {paymentForm}
+        />;
+      default:
+        throw new Error('Unknown step');
+    }
+  }
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
-        <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
+        <Paper component="form" onSubmit={(event) => {event.preventDefault(); handleNext()}} variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
           <Typography component="h1" variant="h4" align="center">
             Checkout
           </Typography>
@@ -73,18 +127,17 @@ export default function Checkout() {
               </React.Fragment>
             ) : (
               <React.Fragment>
-                {getStepContent(activeStep)}
+                {getStepContent()}
                 <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
                   {activeStep !== 0 && (
                     <Button onClick={handleBack} sx={{ mt: 3, ml: 1 }}>
                       Back
                     </Button>
                   )}
-
-                  <Button
+                  <Button type="submit"
                     variant="contained"
-                    onClick={handleNext}
                     sx={{ mt: 3, ml: 1 }}
+                    disabled={!isFormValid()}
                   >
                     {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
                   </Button>
