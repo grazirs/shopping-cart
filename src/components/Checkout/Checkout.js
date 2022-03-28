@@ -43,29 +43,29 @@ export default function Checkout({cart}) {
   });
 
   const isFormValid = () => {
-    return addressIsValid && activeStep === 0 || paymentIsValid && activeStep === 1;
+    return addressIsValid && activeStep === 0 || paymentIsValid && activeStep === 1 || activeStep === 2 ;
   }
 
-  const checkAddressValidation = (newAddress) => {
-    const isValid = Object.values(newAddress).every((value) => value.length > 0);
+  const checkAddressValidation = (form) => {
+    const isValid = form.checkValidity();
     setAddressIsValid(isValid);
   }
 
   const handleAddressForm = (event) => {
     const newAddress = { ...addressForm, [event.target.name]: event.target.value };
     setAddressForm(newAddress);
-    checkAddressValidation(newAddress, setAddressIsValid);
+    checkAddressValidation(event.target.form, setAddressIsValid);
   }
 
-  const checkPaymentValidation = (newPayment) => {
-    const isPaymentValid = Object.values(newPayment).every((value) => value.length > 0);
+  const checkPaymentValidation = (form) => {
+    const isPaymentValid = form.checkValidity();
     setPaymentIsValid(isPaymentValid);
   }
 
   const handlePaymentForm = (event) => {
     const newPayment = { ...paymentForm, [event.target.name]: event.target.value };
     setPaymentForm(newPayment);
-    checkPaymentValidation(newPayment, setPaymentIsValid);
+    checkPaymentValidation(event.target.form, setPaymentIsValid);
   }
 
   const handleNext = () => {
