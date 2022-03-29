@@ -4,8 +4,8 @@ const colors = {
   purple: "#5e6ec9",
   darkBlue: "rgb(17, 97, 201)",
   grey: "#c5c5c5",
-  black: "#111111",
-  white: "#ffffff",
+  black: "#242428",
+  white: "#f8f8f8",
 }
 
 const font = {
