@@ -133,7 +133,7 @@ export default function AddressForm({addressForm, handleAddressForm}) {
             value={addressForm.region}
             onChange={handleAddressForm}
           >
-            {regions.map((region) => (
+            {[... new Set(regions)].map((region) => (
               <MenuItem key={region} value={region}>
                 {region}
               </MenuItem>
