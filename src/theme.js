@@ -14,7 +14,7 @@ const font = {
 
 const space = [0, 5, 10, 20, 28, 40, 48]
 
-const fontSizes = [ 0, 18, 20]
+const fontSizes = [0, 18, 20]
 
 const fontWeights = [0, 300, 400, 500, 600, 700]
 
