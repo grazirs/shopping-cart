@@ -14,7 +14,7 @@ Open a terminal and execute this command to run: ```npm start```.
 Open a terminal and execute this command: ```npm test```. 
 
 
-Final result: 
+Still in progress (adding new funcionalities) 
 ![css](https://user-images.githubusercontent.com/62312328/159080252-b67e625b-3aa4-466b-9130-0c06981b4f6d.gif)
 
 
