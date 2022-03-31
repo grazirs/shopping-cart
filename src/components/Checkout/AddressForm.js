@@ -1,11 +1,10 @@
 import * as React from "react";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
-import TextField from "@mui/material/TextField";
+import { Input, Select } from "../Input";
+import { Text }  from '../Text';
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-import InputLabel from "@mui/material/InputLabel";
-import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import countriesData from "./countries_states.json";
 
@@ -23,120 +22,97 @@ export default function AddressForm({addressForm, handleAddressForm}) {
       </Typography>
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6}>
-          <TextField
+          <Text level={4} color="darkGrey">First Name</Text>
+          <Input
             required
             id="firstName"
             name="firstName"
-            label="First name"
-            fullWidth
-            autoComplete="given-name"
-            variant="standard"
             value={addressForm.firstName}
             onChange={handleAddressForm}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <TextField
+        <Text level={4} color="darkGrey">Last Name</Text>
+          <Input
             required
             id="lastName"
             name="lastName"
-            label="Last name"
-            fullWidth
-            autoComplete="family-name"
-            variant="standard"
             value={addressForm.lastName}
             onChange={handleAddressForm}
           />
         </Grid>
         <Grid item xs={12}>
-          <TextField
+        <Text level={4} color="darkGrey">Address line 1</Text>
+          <Input
             required
             id="address1"
             name="address1"
-            label="Address line 1"
-            fullWidth
-            autoComplete="shipping address-line1"
-            variant="standard"
             value={addressForm.address1}
             onChange={handleAddressForm}
           />
         </Grid>
         <Grid item xs={12}>
-          <TextField
+        <Text level={4} color="darkGrey">Address line 2</Text>
+          <Input
             id="address2"
             name="address2"
-            label="Address line 2"
-            fullWidth
-            autoComplete="shipping address-line2"
-            variant="standard"
             value={addressForm.address2}
             onChange={handleAddressForm}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <TextField
+        <Text level={4} color="darkGrey">Zip / Postal code</Text>
+          <Input
             required
             id="zip"
             name="zip"
-            label="Zip / Postal code"
-            fullWidth
-            autoComplete="shipping postal-code"
-            variant="standard"
             value={addressForm.zip}
             onChange={handleAddressForm}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <TextField
+        <Text level={4} color="darkGrey">City</Text>
+          <Input
             required
             id="city"
             name="city"
-            label="City"
-            fullWidth
-            autoComplete="shipping address-level2"
-            variant="standard"
             value={addressForm.city}
             onChange={handleAddressForm}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <InputLabel id="countries">Country</InputLabel>
+          <Text id="countries" level={4} color="darkGrey">Country</Text>
           <Select
             required
-            labelId="countries"
             id="countries-open-select"
             label="Country"
-            fullWidth
             name="country"
-            variant="standard"
             value={addressForm.country}
             onChange={handleAddressForm}
-            data-testid="select"
           >
+            <option value="" hidden></option>
             {countriesData.countries.map((countryData) => (
-              <MenuItem key={countryData.country} value={countryData.country}>
+              <option key={countryData.country} value={countryData.country}>
                 {countryData.country}
-              </MenuItem>
+              </option>
             ))}
           </Select>
         </Grid>
         <Grid item xs={12} sm={6}>
-          <InputLabel id="regions">State/Province/Region</InputLabel>
+        <Text id="regions" level={4} color="darkGrey">State/Province/Region</Text>
           <Select
             required
             labelId="regions"
             id="regions-open-select"
-            label="State/Province/Region"
             name="region"
-            fullWidth
-            variant="standard"
             value={addressForm.region}
             onChange={handleAddressForm}
           >
+          <option value="" hidden></option>
             {regions.map((region) => (
-              <MenuItem key={region} value={region}>
+              <option key={region} value={region}>
                 {region}
-              </MenuItem>
+              </option>
             ))}
           </Select>
         </Grid>

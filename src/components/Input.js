@@ -4,13 +4,23 @@ export const Input = styled.input `
   border-color: ${({theme}) => theme.colors.grey};
   padding: ${({theme}) => theme.space[1]};
   width: 100%;
+  height: 35px;
   color: ${({theme}) => theme.colors.darkGrey};
+  background-color: ${({theme}) => theme.colors.lightGrey};
   border: none;
-  border-bottom: solid 1x ${({theme}) => theme.colors.blue};
   &:focus {
-    border: none;
     border: solid 2px ${({theme}) => theme.colors.blue};
     outline: none;
-    border-radius: ${({theme}) => theme.radii[1]};
   }
 `
+export const Select = styled.select`
+  width: 100%;
+  height: 35px;
+  background: ${({theme}) => theme.colors.lightGrey};
+  color: ${({theme}) => theme.colors.darkGrey};
+  border: none;
+  &:focus {
+    border: solid 2px ${({theme}) => theme.colors.blue};
+    outline: none;
+  }
+`;
