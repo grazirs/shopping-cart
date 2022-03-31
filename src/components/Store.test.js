@@ -2,11 +2,13 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import AVAILABLE_PRODUCTS from "../availableProducts";
 import Store from "./Store";
+import { ThemeProvider } from 'styled-components';
+import theme from "../theme";
 
 describe("<Store />", () => {
   const setup = () => {
     const product = AVAILABLE_PRODUCTS[0];
-    render(<Store />);
+    render(<ThemeProvider theme={theme}><Store /></ThemeProvider>);
     return { product };
   };
 

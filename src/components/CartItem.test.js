@@ -1,14 +1,14 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import CartItem from "./CartItem";
+import { ThemeProvider } from 'styled-components';
+import theme from "../theme";
 
 describe("<CartItem/>", () => {
   const setup = () => {
     const removeFromCartMock = jest.fn();
     const item = { name: "item1", description: "something here" };
-    render(
-      <CartItem item={item} removeFromCart={removeFromCartMock} />
-    );
+    render(<ThemeProvider theme={theme}><CartItem item={item} removeFromCart={removeFromCartMock} /></ThemeProvider>);
     return { removeFromCartMock, item };
   };
 

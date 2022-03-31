@@ -20,7 +20,7 @@ export default function AddressForm({addressForm, handleAddressForm}) {
       </Text>
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6}>
-          <Text level={4} color="darkGrey">First Name</Text>
+          <Text level={4} color="darkGrey">First Name*</Text>
           <Input
             required
             id="firstName"
@@ -30,7 +30,7 @@ export default function AddressForm({addressForm, handleAddressForm}) {
           />
         </Grid>
         <Grid item xs={12} sm={6}>
-        <Text level={4} color="darkGrey">Last Name</Text>
+        <Text level={4} color="darkGrey">Last Name*</Text>
           <Input
             required
             id="lastName"
@@ -40,7 +40,7 @@ export default function AddressForm({addressForm, handleAddressForm}) {
           />
         </Grid>
         <Grid item xs={12}>
-        <Text level={4} color="darkGrey">Address line 1</Text>
+        <Text level={4} color="darkGrey">Address line 1*</Text>
           <Input
             required
             id="address1"
@@ -59,7 +59,7 @@ export default function AddressForm({addressForm, handleAddressForm}) {
           />
         </Grid>
         <Grid item xs={12} sm={6}>
-        <Text level={4} color="darkGrey">Zip / Postal code</Text>
+        <Text level={4} color="darkGrey">Zip / Postal code*</Text>
           <Input
             required
             id="zip"
@@ -69,7 +69,7 @@ export default function AddressForm({addressForm, handleAddressForm}) {
           />
         </Grid>
         <Grid item xs={12} sm={6}>
-        <Text level={4} color="darkGrey">City</Text>
+        <Text level={4} color="darkGrey">City*</Text>
           <Input
             required
             id="city"
@@ -79,7 +79,7 @@ export default function AddressForm({addressForm, handleAddressForm}) {
           />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <Text id="countries" level={4} color="darkGrey">Country</Text>
+          <Text id="countries" level={4} color="darkGrey">Country*</Text>
           <Select
             required
             id="countries-open-select"
@@ -97,7 +97,7 @@ export default function AddressForm({addressForm, handleAddressForm}) {
           </Select>
         </Grid>
         <Grid item xs={12} sm={6}>
-        <Text id="regions" level={4} color="darkGrey">State/Province/Region</Text>
+        <Text id="regions" level={4} color="darkGrey">State/Province/Region*</Text>
           <Select
             required
             labelId="regions"
