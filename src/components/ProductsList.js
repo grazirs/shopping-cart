@@ -1,9 +1,11 @@
 import Product from "./Product";
+import { Text } from "./Text";
+import { css } from "@styled-system/css";
 
 const ProductsList = ({products, addToCart}) => {
   return (
     <>
-      <h1 className="title">Products: Handmade Embroidery</h1>
+      <Text level={1} css={css({margin:"3"})}>Products: Handmade Embroidery</Text>
       <div className="product-list">
         {products.map(product =>
           <div key={product.name}>

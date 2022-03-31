@@ -3,6 +3,8 @@ import Cart from "./Cart"
 import ProductsList from "./ProductsList"
 import Checkout from "./Checkout"
 import AVAILABLE_PRODUCTS  from "../availableProducts"
+import { Button } from "./Button"
+import { css } from "@styled-system/css"
 
 const Store = () => {
   const [products, setProducts] = useState(AVAILABLE_PRODUCTS);
@@ -27,8 +29,8 @@ const Store = () => {
     <>
       <header className="header">
         <nav className="header__nav">
-          <button className="nav__button" onClick={() => {setRenderPage('products')}}>Products</button>
-          <button className="nav__button" onClick={() => {setRenderPage('cart')}}>Cart</button>
+          <Button onClick={() => {setRenderPage('products')}} css={css({backgroundColor:"transparent", margin:"2", fontWeight:"5"})}>Products</Button>
+          <Button onClick={() => {setRenderPage('cart')}}css={css({backgroundColor:"transparent", margin:"2", fontWeight:"5"})}>Cart</Button>
         </nav>
       </header>
       <main className="main">

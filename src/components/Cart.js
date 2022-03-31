@@ -1,9 +1,12 @@
 import CartItem from "./CartItem";
+import { Button  } from "./Button";
+import { Text } from "./Text";
+import css from '@styled-system/css'
 
 const Cart = ({cart, removeFromCart, checkout}) => {
   return (
     <>
-      <h1 className="title">My Cart</h1>
+      <Text level={1} className="title">My Cart</Text>
       <div className="cart">
         {cart.map(item => 
           <div key={item.name}>
@@ -11,7 +14,7 @@ const Cart = ({cart, removeFromCart, checkout}) => {
           </div>
         )}
       </div>
-      <button onClick={checkout} disabled={cart.length === 0} className="button button--checkout">Checkout</button>
+      <Button onClick={checkout} disabled={cart.length === 0} css={css({fontWeight:"700"})}>Checkout</Button>
     </>
   )
 }

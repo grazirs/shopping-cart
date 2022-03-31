@@ -1,11 +1,15 @@
+import { Button } from "./Button";
+import { Text } from "./Text";
+import css from '@styled-system/css'
+
 const CartItem = ({item, removeFromCart}) => {
   return (
     <>
       <div className="item">
-        <p className="item__name">{item.name}</p>
-        <p className="item__description">{item.description}</p>
-        <p className="item__price">{item.price}</p>
-        <button onClick={removeFromCart} className="button button--remove">Remove From Cart</button>
+        <Text level={3}>{item.name}</Text>
+        <Text level={3} fontWeight="2">{item.description}</Text>
+        <Text level={3} fontWeight="2">{item.price}</Text>
+        <Button onClick={removeFromCart} css={css({backgroundColor:"darkRed", fontWeight:"4"})}>Remove From Cart</Button>
       </div>
       <hr></hr>
     </>
