@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Input = styled.input `
   border-color: ${({theme}) => theme.colors.grey};
-  padding: ${({theme}) => theme.space[1]};
+  padding: ${({theme}) => `${theme.space[1]}px`};
   width: 100%;
   color: ${({theme}) => theme.colors.darkGrey};
   border: none;
@@ -11,6 +11,6 @@ export const Input = styled.input `
     border: none;
     border: solid 2px ${({theme}) => theme.colors.blue};
     outline: none;
-    border-radius: ${({theme}) => theme.radii[1]};
+    border-radius: ${({theme}) => `${theme.radii[1]}px`};
   }
 `
