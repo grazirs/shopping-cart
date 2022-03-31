@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Input = styled.input `
   border-color: ${({theme}) => theme.colors.grey};
-  padding: ${({theme}) => theme.space[1]};
+  padding: ${({theme}) => `${theme.space[1]}px`};
   width: 100%;
   height: 35px;
   color: ${({theme}) => theme.colors.darkGrey};
