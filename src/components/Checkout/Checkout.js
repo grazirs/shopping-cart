@@ -42,19 +42,22 @@ export default function Checkout({cart}) {
     cvv: "",
   });
 
+  React.useEffect(()=>{
+    if(activeStep === 0){
+      let form = document.getElementsByTagName('form')[0];
+      if(addressIsValid !== form.checkValidity()){
+        setAddressIsValid(form.checkValidity());
+      }
+    }
+  })
+
   const isFormValid = () => {
     return addressIsValid && activeStep === 0 || paymentIsValid && activeStep === 1 || activeStep === 2 ;
   }
 
-  const checkAddressValidation = (form) => {
-    const isValid = form.checkValidity();
-    setAddressIsValid(isValid);
-  }
-
   const handleAddressForm = (event) => {
-    const newAddress = { ...addressForm, [event.target.name]: event.target.value };
+    let newAddress = { ...addressForm, [event.target.name]: event.target.value };
     setAddressForm(newAddress);
-    checkAddressValidation(event.target.form, setAddressIsValid);
   }
 
   const checkPaymentValidation = (form) => {
@@ -65,7 +68,7 @@ export default function Checkout({cart}) {
   const handlePaymentForm = (event) => {
     const newPayment = { ...paymentForm, [event.target.name]: event.target.value };
     setPaymentForm(newPayment);
-    checkPaymentValidation(event.target.form, setPaymentIsValid);
+    checkPaymentValidation(event.target.form);
   }
 
   const handleNext = () => {
@@ -116,10 +119,10 @@ export default function Checkout({cart}) {
           <React.Fragment>
             {activeStep === steps.length ? (
               <React.Fragment>
-                <Text level={5}>
+                <Text level={3}>
                   Thank you for your order.
                 </Text>
-                <Text level={3}>
+                <Text level={4} align="justify">
                   Your order number is #2001539. We have emailed your order
                   confirmation, and will send you an update when your order has
                   shipped.

@@ -1,6 +1,8 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Checkout from "./Checkout";
+import { ThemeProvider } from 'styled-components';
+import theme from "../../theme";
 
 const fillForm = () => {
   const firstName = screen.getByRole('textbox', {  name: /first name/i});
@@ -28,19 +30,19 @@ const fillForm = () => {
 describe("<Checkout/>", () => {
   describe("when checkout is rendered", () => {
     it("renders Checkout title", () => {
-      render(<Checkout />);
+      render(<ThemeProvider theme={theme}><Checkout /></ThemeProvider>);
       const checkoutTitle = screen.getByRole('heading', {  name: /checkout/i});
       expect(checkoutTitle).toBeInTheDocument();
     });
 
     it("renders Shipping  Address", () => {
-      render(<Checkout />);
+      render(<ThemeProvider theme={theme}><Checkout /></ThemeProvider>);
       const shippingText = screen.getByRole('heading', {  name: /shipping address/i});
       expect(shippingText).toBeInTheDocument();
     });
 
     it("renders Next button disabled", () => {
-      render(<Checkout />);
+      render(<ThemeProvider theme={theme}><Checkout /></ThemeProvider>);
       const nextButton = screen.getByRole("button", { name: "Next" });
       expect(nextButton).toBeDisabled();
     });
@@ -48,7 +50,7 @@ describe("<Checkout/>", () => {
 
   describe("when all data is filled", () => {
     it("renders Next button not disabled", () => {
-      render(<Checkout />);
+      render(<ThemeProvider theme={theme}><Checkout /></ThemeProvider>);
       fillForm();
       const nextButton = screen.getByRole("button", { name: "Next" });
       expect(nextButton).not.toBeDisabled();
@@ -57,7 +59,7 @@ describe("<Checkout/>", () => {
 
   describe("when all data is filled", () => {
     it("renders Next button not disabled", () => {
-      render(<Checkout />);
+      render(<ThemeProvider theme={theme}><Checkout /></ThemeProvider>);
       fillForm();
       const nextButton = screen.getByRole("button", { name: "Next" });
       userEvent.click(nextButton);

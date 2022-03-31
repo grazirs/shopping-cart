@@ -1,7 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import AddressForm from "./AddressForm";
-
+import { ThemeProvider } from 'styled-components';
+import theme from "../../theme";
 describe("<AddressForm/>", () => {
   const setup = () => {
     const addressForm = { 
@@ -15,7 +16,7 @@ describe("<AddressForm/>", () => {
       region: ""
     };
     const handleAddressForm = () => {};
-    render(<AddressForm  addressForm = {addressForm} handleAddressForm = {handleAddressForm}/>);
+    render(<ThemeProvider theme={theme}><AddressForm  addressForm = {addressForm} handleAddressForm = {handleAddressForm}/></ThemeProvider>);
   };
 
   describe("when Address Form is rendered", () => {
