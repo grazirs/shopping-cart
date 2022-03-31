@@ -17,9 +17,9 @@ export default function AddressForm({addressForm, handleAddressForm}) {
 
   return (
     <React.Fragment>
-      <Typography variant="h6" gutterBottom>
+      <Text level={2}>
         Shipping address
-      </Typography>
+      </Text>
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6}>
           <Text level={4} color="darkGrey">First Name</Text>
