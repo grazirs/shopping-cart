@@ -13,6 +13,8 @@ Open a terminal and execute this command to run: ```npm start```.
 
 Open a terminal and execute this command: ```npm test```. 
 
+## Updated Project
+
 ![shopping-cart](https://user-images.githubusercontent.com/62312328/174800351-5140820c-8f13-4803-805b-7682cc53cabe.gif)
 
 
