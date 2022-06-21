@@ -13,9 +13,7 @@ Open a terminal and execute this command to run: ```npm start```.
 
 Open a terminal and execute this command: ```npm test```. 
 
-
-Still in progress (adding new funcionalities) 
-![css](https://user-images.githubusercontent.com/62312328/159080252-b67e625b-3aa4-466b-9130-0c06981b4f6d.gif)
+![shopping-cart](https://user-images.githubusercontent.com/62312328/174800351-5140820c-8f13-4803-805b-7682cc53cabe.gif)
 
 
 
