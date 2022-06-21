@@ -11,7 +11,7 @@ const Cart = ({cart, removeFromCart, checkout}) => {
           </div>
         )}
       </div>
-      <button onClick={checkout} className="button button--checkout">Checkout</button>
+      <button onClick={checkout} disabled={cart.length === 0} className="button button--checkout">Checkout</button>
     </>
   )
 }

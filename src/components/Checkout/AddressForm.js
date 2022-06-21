@@ -9,22 +9,12 @@ import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import countriesData from "./countries_states.json";
 
-export default function AddressForm() {
-  const [country, setCountry] = React.useState("");
-  const [regions, setRegions] = React.useState([]);
-  const [region, setRegion] = React.useState("");
-
-  const handleChangeCountry = (event) => {
-    setCountry(event.target.value);
-    const filteredCountry = countriesData.countries.filter(
-      (countryData) => countryData.country === event.target.value
-    );
-    setRegions(filteredCountry[0].states);
-  };
-
-  const handleChangeRegion = (event) => {
-    setRegion(event.target.value);
-  };
+export default function AddressForm({addressForm, handleAddressForm}) {
+  let regions = [];
+  if (addressForm.country?.length > 0) {
+    regions = countriesData.countries.filter(
+      (countryData) => countryData.country === addressForm.country)[0].states;
+  }
 
   return (
     <React.Fragment>
@@ -41,6 +31,8 @@ export default function AddressForm() {
             fullWidth
             autoComplete="given-name"
             variant="standard"
+            value={addressForm.firstName}
+            onChange={handleAddressForm}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -52,6 +44,8 @@ export default function AddressForm() {
             fullWidth
             autoComplete="family-name"
             variant="standard"
+            value={addressForm.lastName}
+            onChange={handleAddressForm}
           />
         </Grid>
         <Grid item xs={12}>
@@ -63,6 +57,8 @@ export default function AddressForm() {
             fullWidth
             autoComplete="shipping address-line1"
             variant="standard"
+            value={addressForm.address1}
+            onChange={handleAddressForm}
           />
         </Grid>
         <Grid item xs={12}>
@@ -73,6 +69,8 @@ export default function AddressForm() {
             fullWidth
             autoComplete="shipping address-line2"
             variant="standard"
+            value={addressForm.address2}
+            onChange={handleAddressForm}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -84,6 +82,8 @@ export default function AddressForm() {
             fullWidth
             autoComplete="shipping postal-code"
             variant="standard"
+            value={addressForm.zip}
+            onChange={handleAddressForm}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -95,6 +95,8 @@ export default function AddressForm() {
             fullWidth
             autoComplete="shipping address-level2"
             variant="standard"
+            value={addressForm.city}
+            onChange={handleAddressForm}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -104,10 +106,11 @@ export default function AddressForm() {
             labelId="countries"
             id="countries-open-select"
             label="Country"
-            onChange={handleChangeCountry}
             fullWidth
+            name="country"
             variant="standard"
-            value={country}
+            value={addressForm.country}
+            onChange={handleAddressForm}
             data-testid="select"
           >
             {countriesData.countries.map((countryData) => (
@@ -124,12 +127,13 @@ export default function AddressForm() {
             labelId="regions"
             id="regions-open-select"
             label="State/Province/Region"
-            onChange={handleChangeRegion}
+            name="region"
             fullWidth
             variant="standard"
-            value={region}
+            value={addressForm.region}
+            onChange={handleAddressForm}
           >
-            {regions.map((region) => (
+            {[... new Set(regions)].map((region) => (
               <MenuItem key={region} value={region}>
                 {region}
               </MenuItem>

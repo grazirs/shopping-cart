@@ -34,7 +34,7 @@ const Store = () => {
       <main className="main">
         {renderPage === 'products' && <ProductsList products={products} addToCart={addToCart}/> }
         {renderPage === 'cart' && <Cart cart={cart} removeFromCart={removeFromCart} checkout={checkout}/>}
-        {renderPage === 'checkout' && <Checkout />}
+        {renderPage === 'checkout' && <Checkout cart={cart}/>}
       </main>
     </>
   )
